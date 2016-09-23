@@ -1,13 +1,22 @@
-import ZAFClient from 'zendesk_app_framework_sdk';
-import I18n from 'i18n';
+import React from 'react';
+import { render } from 'react-dom';
+import App from './components/App';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import reducer from './reducers/index';
+import { Provider } from 'react-redux';
 
-var client = ZAFClient.init();
+const store = createStore(
+  reducer,
+  compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
+);
 
-client.on('app.registered', function(appData) {
-  client.get('currentUser.locale').then(userData => {
-    I18n.loadTranslations(userData['currentUser.locale']);
-    let location = appData.context.location;
-    let App = require(`./${location}.js`).default;
-    new App(client, appData);
-  });
-});
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('data-main')
+);
