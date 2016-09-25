@@ -7,10 +7,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var externalAssets = {
   css: [
-    'https://cdn.jsdelivr.net/bootstrap/2.3.2/css/bootstrap.min.css'
+    'https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css'
   ],
   js: [
-    'https://cdn.jsdelivr.net/g/lodash@2.4.2(lodash.underscore.min.js),handlebarsjs@1.3.0,jquery@2.2.4,momentjs@2.9.0,bootstrap@2.3.2',
+    'https://cdn.jsdelivr.net/g/lodash@4.14.0,handlebarsjs@4.0.5,jquery@3.1.0,bootstrap@3.3.7,momentjs@2.14.1',
     'https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js'
   ]
 }
@@ -55,7 +55,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015']
+          presets: ['es2015', 'react', 'stage-2']
         }
       },
       {
@@ -68,11 +68,15 @@ module.exports = {
       }
     ]
   },
+  eslint: {
+    emitError: false,
+    emitWarning: true
+  },
   resolveLoader: {
-    modulesDirectories: [ './lib/loaders', 'node_modules' ]
+    modulesDirectories: ['./lib/loaders', 'node_modules']
   },
   resolve: {
-    modulesDirectories: [ 'node_modules', './lib/javascripts' ],
+    modulesDirectories: ['node_modules', './lib/javascripts'],
     alias: {
       'app_manifest': path.join(__dirname, './dist/manifest.json')
     },
