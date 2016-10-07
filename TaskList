@@ -1,0 +1,10 @@
+
+Test auspost keys. try requests, grab a sample json response
+API Key: cdc5cde3-63f8-4383-b475-547107155588
+Password: xf4404088d4becbc60de
+Account Number: 1010300883
+
+try to setup fedex api, investigate; grab sample json response
+
+put together react component - EventList. 
+  Event: date, status, description, location? ( identify common attributes between the two, avoid having to create specific Lists for each Post company )

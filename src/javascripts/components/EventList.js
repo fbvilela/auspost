@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 export const EventListView = ({ events }) => (
   <div>
-    <h1>EventList</h1>
+    <span>EventList</span>
     <ul>
       {events.map(event => (
         <li>{event}</li>

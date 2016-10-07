@@ -1,3 +1,5 @@
+import trackAuspostParcel from '../modules/auspost'
+
 export function updateEvents(events) {
   return {
     type: 'UPDATE_EVENTS',
@@ -8,9 +10,11 @@ export function updateEvents(events) {
 
 export function getEvents(trackingCode) {
   return (dispatch) => {
-    setTimeout(() => {
+    trackAuspostParcel().then(json => {
+      console.log('json', json)
       dispatch(updateEvents([1,2,3]))
-    }, 1000)
-
+    }).catch( error => {
+      console.log('shit happened', error)
+    })
   }
 }
