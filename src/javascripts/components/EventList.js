@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export const EventListView = ({ events }) => (
+export const EventListView = ({ trackedObject }) => (
   <div>
-    <span>EventList</span>
+    <span>{trackedObject.status}</span>
     <ul>
-      {events.map(event => (
-        <li>{event}</li>
+      {trackedObject.events.map(event => (
+        <li>{event.location}</li>
       ))}
     </ul>
   </div>
 );
 
 const mapStateToProps = (state) => {
-  return { events: state.events }
+  return { trackedObject: state.trackedObject }
 }
 
 const EventList = connect(mapStateToProps)(EventListView);

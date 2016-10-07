@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import events from './events';
+import trackedObject from './tracked-object';
 import trackingCode from './tracking-code';
 
 export default combineReducers({
-  events,
+  trackedObject,
   trackingCode
 });
