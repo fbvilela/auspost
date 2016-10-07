@@ -1,7 +1,8 @@
-import exampleResponse from '../../fixtures/auspost.json'
+import exampleResponse from '../../fixtures/auspost'
 import credentials from '../../credentials/auspost'
 import { proxyRequest } from './zendesk'
 import _ from 'lodash'
+console.log(exampleResponse)
 
 const auspostHeaders = {
   "Content-Type": "application/json",
@@ -15,6 +16,8 @@ const trackAuspostParcel = (trackingCode = '63511244666062') => {
     type: 'GET',
     headers: auspostHeaders
   }
+
+  return Promise.resolve(parseResponse(exampleResponse))
 
   return proxyRequest(requestOptions).then( response => {
     return parseResponse(response)

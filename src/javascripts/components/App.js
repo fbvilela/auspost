@@ -5,7 +5,7 @@ import TrackingForm from './TrackingForm';
 import EventList from './EventList';
 
 export const AppView = () => (
-  <div>
+  <div className='container'>
     <TrackingForm />
     <EventList />
   </div>

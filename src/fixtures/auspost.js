@@ -1,4 +1,4 @@
-{
+export default {
   "tracking_results": [
     {
       "tracking_id": "ajlajsdlj",

@@ -1,14 +1,17 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
+import Event from './Event'
 
 export const EventListView = ({ trackedObject }) => (
-  <div>
-    <span>{trackedObject.status}</span>
-    <ul>
-      {trackedObject.events.map(event => (
-        <li>{event.location}</li>
-      ))}
-    </ul>
+  <div className='container'>
+    <span className='status'>{trackedObject.status}</span>
+    <table className='table'>
+      <tbody className='table-striped table-condensed'>
+        {trackedObject.events.map(event => (
+          <Event event={event} />
+        ))}
+      </tbody>
+    </table>
   </div>
 );
 

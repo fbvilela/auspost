@@ -35,6 +35,10 @@ module.exports = {
     ],
     loaders: [
       {
+        test: /\.json$/,
+        loader: 'json'
+      },
+      {
         test: /\.scss$/,
         loader: extractStyles.extract("style", ["css?sourceMap", "sass?sourceMap"])
       },
