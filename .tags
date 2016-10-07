@@ -1,0 +1,2 @@
+client	/Users/fvilela/code/zendesk/auspost/src/javascripts/modules/zendesk.js	/^var client = ZAFClient.init();$/;"	variable	line:2
+const.url	/Users/fvilela/code/zendesk/auspost/src/javascripts/modules/auspost.js	/^const requestOptions = {$/;"	property	line:12
